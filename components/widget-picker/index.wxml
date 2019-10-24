@@ -1,0 +1,13 @@
+<!--components/widget-picker/index.wxml-->
+<view class="widget-picker">
+  <view class="mask" wx:if="{{maskShow}}"></view>
+  <view class="picker {{ready?'show':''}}">
+    <view class="action-btn"><text bindtap="cancel">取消</text><text bindtap="confirm">确定</text></view>
+    <view class="title" wx:if="{{options.titleArr.length > 0}}"><text wx:for="{{options.titleArr}}" wx:key="index">{{item}}</text></view>
+    <picker-view class="picker-row" indicator-class="selected" value="{{options.selected}}" bindchange="bindchange">
+      <picker-view-column wx:for="{{options.columns}}" wx:key="index" class="picker-column">
+        <view wx:for="{{options.columns[index]}}" wx:key="index" class="block">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>  
+</view>

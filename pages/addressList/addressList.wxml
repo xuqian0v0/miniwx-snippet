@@ -1,0 +1,20 @@
+<!--pages/addressList/addressList.wxml-->
+<view class="page-address-list">
+  <view class="fix-title" wx:if="{{fixedTitle!==title[0]}}">{{fixedTitle==='ex'?'#':fixedTitle}}</view>
+  <scroll-view scroll-y class="scroll-view" scroll-into-view="{{viewTitle}}" scroll-with-animation="true" bindscroll="scroll">
+    <view wx:for="{{addressList}}" wx:key="index" wx:if="{{item.length > 0}}" class="list" id="view_{{index}}">
+      <view class="title">{{index==='ex'?'#':index}}</view>
+      <view class="block" wx:for="{{item}}" wx:key="uid" data-uid="{{item.uid}}">
+        <image src="{{item.face}}" class="face"></image>
+        <view class="center">
+          <text>{{item.name}}</text>
+          <image src="{{item.sexIcon}}" class="sex"></image>
+        </view>
+        <!-- <view class="time">添加时间 {{item.time}}</view> -->
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="point" scroll-into-view="{{fixedTitle==='#'?'ex':fixedTitle}}" scroll-with-animation="true">
+    <text wx:for="{{title}}" wx:key="index" id="{{title[index]}}" class="{{fixedTitle===title[index]?'cur':''}}" bindtap="selectTitle" data-name="{{item}}">{{item==='ex'?'#':item}}</text>
+  </scroll-view>
+</view>

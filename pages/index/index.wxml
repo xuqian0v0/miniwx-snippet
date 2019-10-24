@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view>
+  <button bindtap="showPicker">picker组件</button>
+  <button bindtap="addressList">通讯录</button>
+  <widget-picker wx:if="{{pickerShow}}" 
+    bind:hiddenPicker="hiddenPicker"
+    bind:pickerChange="pickerChange"
+    options="{{options}}"></widget-picker>
+</view>
